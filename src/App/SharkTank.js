@@ -6,13 +6,13 @@ export default class SharkTank extends Component {
   };
 
   loadStudents = () => {
-    this.setState();
+    this.setState(this.props.living());
   }
 
   render() {
     return (
     <h2>
-        SharkTank
+        {this.props.students}
     </h2>
     );
   }
