@@ -1,37 +1,17 @@
 import React from 'react';
 import './App.scss';
-import studentData from '../helpers/data/studentsData';
+import students from '../helpers/data/studentsData';
 import SharkTank from './SharkTank';
 import Graveyard from './Graveyard';
 
 class App extends React.Component {
-  state = {
-    livingStudents: [],
-    dearlyBeloved: [],
-  }
-
-  livingStudents = () => {
-    studentData.livingStudents().then((response) => {
-      console.warn(response);
-      this.setState({
-        livingStudents: [response],
-      });
-    });
-  };
-
-  dearlyBeloved = () => {
-    studentData.dearlyBeloved().then((response) => {
-      this.setState({
-        dearlyBeloved: [response],
-      });
-    });
-  };
-
   render() {
+    const living = students.livingStudents();
+    const departed = students.dearlyBeloved();
     return (
       <div className="App">
-        <SharkTank />
-        <Graveyard />
+        <SharkTank livingStudents={living} />
+        <Graveyard dearlyBeloved={departed} />
         <button className="btn btn-danger">SHARK ATTACK</button>
       </div>
     );
