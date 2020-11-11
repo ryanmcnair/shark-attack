@@ -5,14 +5,21 @@ import SharkTank from './SharkTank';
 import Graveyard from './Graveyard';
 
 class App extends React.Component {
+  state = {
+    living: students.livingStudents(),
+    departed: students.dearlyBeloved(),
+  }
+
+  followTheLight = () => {
+  
+  };
+
   render() {
-    const living = students.livingStudents();
-    const departed = students.dearlyBeloved();
     return (
       <div className="App">
-        <SharkTank livingStudents={living} />
-        <Graveyard dearlyBeloved={departed} />
-        <button className="btn btn-danger">SHARK ATTACK</button>
+        <SharkTank livingStudents={this.state.living} />
+        <Graveyard dearlyBeloved={this.state.departed} />
+        <button className="btn btn-danger" onClick={this.followTheLight}>SHARK ATTACK</button>
       </div>
     );
   }

@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
+import StudentCard from './LiveStudent';
 
 export default class SharkTank extends Component {
-  state = {
-    students: [],
-  };
-
-  loadStudents = () => {
-    this.setState(this.props.living());
-  }
+  state = {}
 
   render() {
+    const { livingStudents } = this.props;
+    const renderLivingToDom = () => livingStudents.map((student) => <div key={student.id}>{student.firstName} {student.lastName}</div>);
     return (
-    <h2>
-        {this.props.students}
-    </h2>
+      <>
+      <h1>SharkTank</h1>
+      <StudentCard renderLivingToDom={this.renderLivingToDom()} />
+    <div>
+      {renderLivingToDom()}
+    </div>
+    </>
     );
   }
 }
