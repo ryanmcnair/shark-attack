@@ -1,10 +1,24 @@
 import React, { Component } from 'react';
-// import studentsData from '../helpers/data/studentsData';
+import {
+  Card, CardImg, CardBody,
+  CardTitle,
+}
+  from 'reactstrap';
 
 export default class StudentCard extends Component {
   render() {
     return (
-      <h4>Hey</h4>
+      <>
+      <div id="studenCard">
+      <Card body inverse color="info">
+        <CardBody>
+          <h3><i class="fas fa-fish"></i></h3>
+          <CardTitle tag="h3">{this.props.firstName} {this.props.lastName}</CardTitle>
+        </CardBody>
+        <CardImg top width="10%" src={this.props.image} alt={this.props.firstName} />
+      </Card>
+    </div>
+      </>
     );
   }
 }

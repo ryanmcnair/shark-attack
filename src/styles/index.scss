@@ -5,3 +5,36 @@
 body {
   background-color: $favColor;
 }
+
+#sharkTank {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#graveYard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+CardImg {
+  width: 80px;
+  height: 80px;
+}
+
+#studenCard {
+  display: flex;
+  flex-direction: row;
+  width: 25%;
+  height: 5%;
+  margin: 10px;
+}
+
+#graveCard {
+  display: flex;
+  flex-direction: row;
+  width: 25%;
+  margin: 10px;
+}
+

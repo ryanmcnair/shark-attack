@@ -8,18 +8,37 @@ class App extends React.Component {
   state = {
     living: students.livingStudents(),
     departed: students.dearlyBeloved(),
+  };
+
+  resetState = () => {
+    this.setState({
+      living: students.livingStudents(),
+      departed: students.dearlyBeloved(),
+    });
   }
 
-  followTheLight = () => {
-  
-  };
+  randomStudent = () => {
+    if (this.state.living.length) {
+      const studentChooser = this.state.living[
+        Math.floor(Math.random() * this.state.living.length)
+      ].id;
+      students.followTheLight(studentChooser);
+      this.resetState();
+    }
+  }
 
   render() {
     return (
       <div className="App">
-        <SharkTank livingStudents={this.state.living} />
-        <Graveyard dearlyBeloved={this.state.departed} />
-        <button className="btn btn-danger" onClick={this.followTheLight}>SHARK ATTACK</button>
+        <button className="btn btn-danger" onClick={this.randomStudent}>SHARK ATTACK</button>
+        <Graveyard
+          key={this.state.departed.id}
+          dearlyBeloved={this.state.departed}
+        />
+        <SharkTank
+          key={this.state.living.id}
+          livingStudents={this.state.living}
+        />
       </div>
     );
   }

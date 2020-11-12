@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import GraveCard from './GraveStone';
 
 export default class Graveyard extends Component {
   state = {
@@ -6,13 +7,13 @@ export default class Graveyard extends Component {
 
   render() {
     const { dearlyBeloved } = this.props;
-    const renderDeadToDom = () => dearlyBeloved.map((student) => <div key={student.id}>{student.firstName} {student.lastName}</div>);
+    const renderDeadToDom = () => dearlyBeloved.map((student) => <GraveCard key={student.id} firstName={student.firstName} lastName={student.lastName} />);
     return (
     <>
-    <h2>
+      <h1>
             Graveyard
-            </h2>
-            <div>{renderDeadToDom()}</div>
+            </h1>
+            <div id="graveYard">{renderDeadToDom()}</div>
             </>
     );
   }
