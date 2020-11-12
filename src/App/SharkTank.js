@@ -6,12 +6,11 @@ export default class SharkTank extends Component {
 
   render() {
     const { livingStudents } = this.props;
-    const renderLivingToDom = () => livingStudents.map((student) => <div key={student.id}>{student.firstName} {student.lastName}</div>);
+    const renderLivingToDom = () => livingStudents.map((student) => <StudentCard key={student.id} firstName={student.firstName} lastName={student.lastName} image={student.image} />);
     return (
       <>
       <h1>SharkTank</h1>
-      <StudentCard renderLivingToDom={this.renderLivingToDom()} />
-    <div>
+    <div id="sharkTank">
       {renderLivingToDom()}
     </div>
     </>

@@ -130,7 +130,7 @@ const students = [
     firstName: 'Wendell',
     lastName: 'Patton Jr.',
     image: 'https://avatars0.githubusercontent.com/u/63669713?v=4',
-    isDead: true,
+    isDead: false,
   },
   {
     id: '20',
